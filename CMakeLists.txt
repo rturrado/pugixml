@@ -1,4 +1,8 @@
 cmake_minimum_required(VERSION 3.4)
+
+cmake_policy(SET CMP0102 NEW)
+cmake_policy(SET CMP0126 NEW)
+
 project(pugixml VERSION 1.12 LANGUAGES CXX)
 
 include(CMakePackageConfigHelpers)
@@ -47,10 +51,6 @@ mark_as_advanced(PUGIXML_NO_XPATH PUGIXML_NO_STL PUGIXML_NO_EXCEPTIONS)
 # Policy configuration
 if (POLICY CMP0091)
     cmake_policy(SET CMP0091 NEW) # Enables use of MSVC_RUNTIME_LIBRARY
-endif()
-cmake_policy(SET CMP0102 NEW)
-if (POLICY CMP0126)
-    cmake_policy(SET CMP0126 NEW)
 endif()
 
 set(PUGIXML_PUBLIC_DEFINITIONS
