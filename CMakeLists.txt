@@ -1,7 +1,11 @@
 cmake_minimum_required(VERSION 3.4)
 
-cmake_policy(SET CMP0102 NEW)
-cmake_policy(SET CMP0126 NEW)
+if (POLICY CMP0102)
+    cmake_policy(SET CMP0102 NEW)
+endif()
+if (POLICY CMP0126)
+    cmake_policy(SET CMP0126 NEW)
+endif()
 
 project(pugixml VERSION 1.12 LANGUAGES CXX)
 
