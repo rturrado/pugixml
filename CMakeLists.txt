@@ -45,11 +45,15 @@ option(PUGIXML_NO_EXCEPTIONS "Disable Exceptions" OFF)
 mark_as_advanced(PUGIXML_NO_XPATH PUGIXML_NO_STL PUGIXML_NO_EXCEPTIONS)
 
 # Policy configuration
-if(POLICY CMP0091)
+if (POLICY CMP0091)
     cmake_policy(SET CMP0091 NEW) # Enables use of MSVC_RUNTIME_LIBRARY
 endif()
-cmake_policy(SET CMP0102 NEW)
-cmake_policy(SET CMP0126 NEW)
+if (POLICY CMP0102)
+    cmake_policy(SET CMP0102 NEW)
+endif()
+if (POLICY CMP0126)
+    cmake_policy(SET CMP0126 NEW)
+endif()
 
 set(PUGIXML_PUBLIC_DEFINITIONS
   $<$<BOOL:${PUGIXML_WCHAR_MODE}>:PUGIXML_WCHAR_MODE>
